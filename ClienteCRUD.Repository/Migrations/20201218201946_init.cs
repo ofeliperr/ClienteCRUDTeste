@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ClienteCRUD.WebAPI.Migrations
+namespace ClienteCRUD.Repository.Migrations
 {
     public partial class init : Migration
     {
@@ -10,15 +10,16 @@ namespace ClienteCRUD.WebAPI.Migrations
                 name: "Clientes",
                 columns: table => new
                 {
-                    ClienteId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(nullable: true),
                     Telefone = table.Column<string>(nullable: true),
-                    Endereco = table.Column<string>(nullable: true)
+                    Endereco = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteId);
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
                 });
         }
 
