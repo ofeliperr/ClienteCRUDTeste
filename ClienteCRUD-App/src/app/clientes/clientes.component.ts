@@ -92,7 +92,7 @@ export class ClientesComponent implements OnInit {
   getClientes(): void {
     this.clienteService.getAllCliente().subscribe(
       (pax: Cliente[]) => {
-      console.log(pax);
+      // console.log(pax);
       this.clientes = pax;
       this.clientesFiltrados = this.clientes;
     }, error => {
@@ -130,15 +130,15 @@ export class ClientesComponent implements OnInit {
 
         this.cliente = Object.assign({id: this.cliente.id}, this.registerForm.value);
 
-        // this.eventoService.putEvento(this.evento).subscribe(
-        //   () => {
-        //     template.hide();
-        //     this.getEventos();
-        //     this.toastr.success('Alterado com Sucesso!', 'Evento');
-        //   }, error => {
-        //     this.toastr.error('Erro ao alterar!', 'Evento');
-        //   }
-        // );
+        this.clienteService.putCliente(this.cliente).subscribe(
+          () => {
+            template.hide();
+            this.getClientes();
+            this.toastr.success('Alterado com Sucesso!', 'Cliente');
+          }, error => {
+            this.toastr.error('Erro ao alterar!', 'Cliente');
+          }
+        );
       }
     }
   }
@@ -158,16 +158,16 @@ export class ClientesComponent implements OnInit {
 }
 
   confirmeDelete(template: any): void {
-    // this.eventoService.deleteEvento(this.evento.id).subscribe(
-    //   () => {
-    //       template.hide();
-    //       this.getEventos();
-    //       this.toastr.success('Deletado com Sucesso!', 'Evento');
-    //     }, error => {
-    //       this.toastr.error('Erro ao deletar!', 'Evento');
-    //       console.log(error);
-    //     }
-    // );
+    this.clienteService.deleteCliente(this.cliente.id).subscribe(
+      () => {
+          template.hide();
+          this.getClientes();
+          this.toastr.success('Deletado com Sucesso!', 'Cliente');
+        }, error => {
+          this.toastr.error('Erro ao deletar!', 'Cliente');
+          console.log(error);
+        }
+    );
   }
 
   pageChanged(event: any): void {

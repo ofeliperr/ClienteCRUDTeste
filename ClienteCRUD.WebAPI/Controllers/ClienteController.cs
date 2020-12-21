@@ -37,7 +37,7 @@ namespace ClienteCRUD.WebAPI.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{ClienteId}")]
         public async Task<IActionResult> Get(int ClienteId)
         {
             try
@@ -74,7 +74,7 @@ namespace ClienteCRUD.WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpPut]
+        [HttpPut("{ClienteId}")]
         public async Task<IActionResult> Put(int ClienteId, Cliente model)
         {
             try
@@ -100,7 +100,7 @@ namespace ClienteCRUD.WebAPI.Controllers
             return BadRequest();
         }
 
-         [HttpDelete]
+        [HttpDelete("{ClienteId}")] 
         public async Task<IActionResult> Delete(int ClienteId)
         {
             try

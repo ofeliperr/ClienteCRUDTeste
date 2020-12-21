@@ -100,7 +100,7 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
         <div class="form-row">
           <div class="form-group col-md-4">
             <label>Telefone:</label>
-            <input type="text" class="form-control"
+            <input type="text" class="form-control" mask="(00) 00000-0000" 
             [ngClass]="{'is-invalid': submitted && f.telefone.errors}"
             formControlName="telefone" placeholder="Preencha o telefone">
             <div *ngIf="f.telefone.errors?.required && submitted" class="invalid-feedback">

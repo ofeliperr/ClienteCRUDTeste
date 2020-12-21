@@ -18,7 +18,8 @@ export class ClienteService {
 
   // tslint:disable-next-line:typedef
   postCliente(cliente: Cliente){
-    return this.http.post(this.baseURL, cliente);
+    const cli = { nome : cliente.nome, telefone: cliente.telefone, endereco:  cliente.endereco, email: cliente.email};
+    return this.http.post(this.baseURL, cli);
   }
 
   // tslint:disable-next-line:typedef

@@ -7,6 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { ClienteService } from './_services/cliente.service';
     NgxPaginationModule,
     NgbModule,
     ModalModule.forRoot(),
+    NgxMaskModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,

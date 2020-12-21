@@ -48,7 +48,9 @@ namespace ClienteCRUD.Repository
         {
             IQueryable<Cliente> query = _context.Clientes;
 
-            query.OrderByDescending(c => c.Nome)
+            query = query
+                    .AsNoTracking()
+                    .OrderBy(c => c.Id)
                     .Where(c => c.Id == ClienteId);
 
             return await query.FirstOrDefaultAsync();
